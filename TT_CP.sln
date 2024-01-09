@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TT_CP", "TT_CP.csproj", "{1335697B-2D1E-44D6-B38B-43900018720F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TT_CP", "TT_CP.csproj", "{1335697B-2D1E-44D6-B38B-43900018720F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TT_CP_Entites", "..\TT_CP_Entites\TT_CP_Entites.csproj", "{ABAFDEFD-1F5A-468C-A5D0-0835CFC33DFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1335697B-2D1E-44D6-B38B-43900018720F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1335697B-2D1E-44D6-B38B-43900018720F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1335697B-2D1E-44D6-B38B-43900018720F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAFDEFD-1F5A-468C-A5D0-0835CFC33DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAFDEFD-1F5A-468C-A5D0-0835CFC33DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAFDEFD-1F5A-468C-A5D0-0835CFC33DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAFDEFD-1F5A-468C-A5D0-0835CFC33DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
