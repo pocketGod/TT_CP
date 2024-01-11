@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+CorsBootstrap.Initialize(builder.Services);
 MiddlewareBootstrap.Initialize(builder.Services, builder.Configuration);
 DatabaseBootstrap.Initialize(builder.Services, builder.Configuration);
 ServicesBootstrap.Initialize(builder.Services, builder.Configuration);
@@ -21,15 +22,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseCors();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-// Register JwtMiddleware here, before UseRouting
+
 var jwtSettings = app.Services.GetRequiredService<IOptions<JwtSettings>>().Value;
 app.UseMiddleware<JwtMiddleware>(jwtSettings);
 
 app.UseRouting();
-app.UseAuthorization(); // Make sure this comes after UseRouting and JwtMiddleware
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

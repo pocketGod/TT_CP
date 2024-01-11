@@ -4,7 +4,7 @@ using TT_CP.API.Entites.General;
 
 namespace TT_CP.API.Repository.Repositories
 {
-    public interface IContentRepository : IRepository<TranslationDictionaryItem>
+    public interface IDictionaryRepository : IRepository<TranslationDictionaryItem>
     {
         IEnumerable<TranslationDictionaryItem> GetAll();
         TranslationDictionaryItem GetById(string id);
@@ -12,9 +12,9 @@ namespace TT_CP.API.Repository.Repositories
         Task<bool> AddNewItem(TranslationDictionaryItem newItem);
     }
 
-    public class ContentRepository : Repository<TranslationDictionaryItem>, IContentRepository
+    public class DictionaryRepository : Repository<TranslationDictionaryItem>, IDictionaryRepository
     {
-        public ContentRepository(IMongoDatabase database)
+        public DictionaryRepository(IMongoDatabase database)
         : base(database, "Dictionary")
         {
            

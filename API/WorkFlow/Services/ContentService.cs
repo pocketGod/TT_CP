@@ -16,11 +16,11 @@ namespace TT_CP.API.WorkFlow.Services
 
     public class ContentService : IContentService
     {
-        private readonly IContentRepository _dictionaryRepository;
+        private readonly IDictionaryRepository _dictionaryRepository;
         private readonly ICachingHelper _cachingHelper;
         private readonly TimeSpan _cacheDuration = TimeSpan.FromMinutes(45);
 
-        public ContentService(IContentRepository dictionaryRepository, ICachingHelper cachingHelper)
+        public ContentService(IDictionaryRepository dictionaryRepository, ICachingHelper cachingHelper)
         {
             _dictionaryRepository = dictionaryRepository;
             _cachingHelper = cachingHelper;

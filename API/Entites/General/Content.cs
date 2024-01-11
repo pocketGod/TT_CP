@@ -23,4 +23,20 @@ namespace TT_CP.API.Entites.General
         [BsonElement("value")]
         public NestedLang Value { get; set; }
     }
+
+    public class MediaItem
+    {
+        [BsonId]
+        public ObjectId Id { get; set; }
+
+        [BsonElement("url")]
+        public string Url { get; set; }
+
+        [BsonElement("key")]
+        public string Key { get; set; }
+
+
+        [BsonElement("desc")]
+        public NestedLang Description { get; set; }
+    }
 }

@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl:"",
+  sitePass: "Tioma_Client_Auth_Call"
 };

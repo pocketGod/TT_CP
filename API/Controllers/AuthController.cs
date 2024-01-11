@@ -18,16 +18,17 @@ namespace TT_CP.API.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult<string> Login([FromBody] SiteLoginRequest request)
+        public ActionResult<object> Login([FromBody] SiteLoginRequest request)
         {
             string token = _authService.Authenticate(request);
             if (string.IsNullOrEmpty(token))
                 return Unauthorized();
 
-            return Ok(token);
+            return Ok(new { token });
         }
 
 
-      
+
+
     }
 }

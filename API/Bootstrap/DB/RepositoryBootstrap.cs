@@ -8,10 +8,10 @@ namespace TT_CP.API.Bootstrap.DB
     {
         public static void Initialize(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IContentRepository>(serviceProvider =>
+            services.AddScoped<IDictionaryRepository>(serviceProvider =>
             {
                 var database = serviceProvider.GetRequiredService<IMongoClient>().GetDatabase(configuration["MongoDB:DatabaseName_Content"]);
-                return new ContentRepository(database);
+                return new DictionaryRepository(database);
             });
 
             services.AddScoped<IItemsRepository>(serviceProvider =>
