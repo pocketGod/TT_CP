@@ -32,6 +32,16 @@ $colors: (
 
 
 @function color($color-name, $tone: 'base') {
-    @return map-get(map-get($colors, $color-name), $tone);
+    @if map-has-key($colors, $color-name) {
+      $color-map: map-get($colors, $color-name);
+      @if map-has-key($color-map, $tone) {
+        @return map-get($color-map, $tone);
+      } @else {
+        @warn "Unknown tone `#{$tone}` for `#{$color-name}`. Using base.";
+        @return map-get($color-map, base);
+      }
+    } @else {
+      @error "Unknown color `#{$color-name}`.";
+    }
 }
   
