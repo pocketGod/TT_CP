@@ -27,6 +27,9 @@ public class Item
     [BsonElement("video")]
     public string Video { get; set; }
 
+    [BsonElement("cover")]
+    public string Cover { get; set; }
+
     [BsonElement("isActive")]
     public bool IsActive { get; set; }
 }

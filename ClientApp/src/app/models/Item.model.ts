@@ -9,6 +9,7 @@ export interface Item {
     description: LanguageString;
     images: string[];
     video: string;
+    cover: string;
     isActive: boolean;
 }
   
