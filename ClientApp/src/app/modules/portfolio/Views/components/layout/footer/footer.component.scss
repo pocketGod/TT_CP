@@ -2,6 +2,7 @@
 
 .footer {
     position: fixed;
+    z-index: 5;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -9,18 +10,20 @@
     color: color(secondary);
     text-align: center;
     padding: 10px 0;
-}
-  
-.social-icons {
-    display: flex;
-    justify-content: center;
-    a {
-        color: white;
-        margin: 0 10px;
-        font-size: 20px;
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        a {
+            color: color(neutrals,white);
+            margin: 0 10px;
+            font-size: 20px;
+        }
     }
+      
 }
   
+
 
   
 @media (max-width: 600px) {

@@ -1,8 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/Item.model';
 import { ItemsService } from '../../../services/items.service';
 import { ContentService } from 'src/app/modules/shared/services/content.service';
-import { DictionaryEntry } from 'src/app/models/Content.model';
 
 @Component({
   selector: 'app-portfolio-home-page',
@@ -12,7 +11,6 @@ import { DictionaryEntry } from 'src/app/models/Content.model';
 export class PortfolioHomePageComponent implements OnInit {
 
   items: Item[] = [];
-  dictionary: DictionaryEntry[] = [];
 
   constructor(private itemsService: ItemsService, private contentService: ContentService) { }
 
@@ -21,28 +19,17 @@ export class PortfolioHomePageComponent implements OnInit {
       next: (data) => {
         if(data && data.length){
           this.items = data;
-          console.log('items: ',data);
+
+          // just for testing with a single obj
+          this.items.push(data[0])
+          this.items.push(data[0])
+          this.items.push(data[0])
+          this.items.push(data[0])
         }
       },
       error: (err) => console.error(err),
     });
-    this.contentService.dictionary$.subscribe(data => {
-      if(data && data.length){
-        this.dictionary = data;
-        console.log('dict: ',data);
-      }
-    });
   }
 
-
-  @ViewChild('videoPlayer') videoPlayer!: ElementRef;
-
-  playVideo(): void {
-    this.videoPlayer.nativeElement.play();
-  }
-
-  pauseVideo(): void {
-    this.videoPlayer.nativeElement.pause();
-  }
 
 }

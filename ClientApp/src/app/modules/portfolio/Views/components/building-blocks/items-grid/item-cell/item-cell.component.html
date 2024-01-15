@@ -1,0 +1,21 @@
+<div class="cell-container" (mouseenter)="playVideo()" (mouseleave)="pauseVideo()">
+    <div class="cell-head">
+        <h1 [Localize]="item.title"></h1>
+        <h2 [Localize]="item.subTitle"></h2>
+    </div>
+    <div class="cell-collapsable" [ngClass]="{'collapse-content':collapse}">
+        <div class="cell-body">
+            <p [Localize]="item.description"></p>
+            <iframe class="video" [src]="safeVideoUrl" allowfullscreen></iframe>
+        </div>
+        <div class="cell-footer">
+            <p>{{item.year}}</p>
+        </div>
+    </div>
+
+    <div class="cell-background">
+        <video class="video-background" muted loop #videoBackground>
+            <source [src]="item.cover" type="video/mp4">
+        </video>
+    </div>
+</div>

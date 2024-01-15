@@ -10,3 +10,8 @@ export interface DictionaryEntry {
     key: string;
     value: LanguageString;
 }
+
+export enum Language {
+    Hebrew = 'hebrew',
+    English = 'english'
+}

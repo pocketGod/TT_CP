@@ -1,0 +1,12 @@
+@import '/src/app/styles/colors';
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    .single-item-container{
+        // background-color: color(primary,lighter);
+        color: color(primary);
+        cursor: pointer;
+    }
+}

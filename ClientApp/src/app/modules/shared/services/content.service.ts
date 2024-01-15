@@ -19,7 +19,9 @@ export class ContentService extends HttpHandlerService {
 
   private initializeDictionary() {
     this.get<DictionaryEntry[]>('content/GetAll').pipe(
-      tap(data => this.dictionarySubject.next(data))
+      tap(data => {
+        if(data && data.length) this.setDictionary(data)
+      })
     ).subscribe();
   }
 
