@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Item } from 'src/app/models/Item.model';
 
@@ -9,6 +9,7 @@ import { Item } from 'src/app/models/Item.model';
 })
 export class ItemCellComponent implements OnInit, OnChanges {
 
+  @ViewChild('videoBackground') videoBackground!: ElementRef;
   @Input() item!: Item;
   @Input() index!: number
   @Input() collapse: boolean = true;
@@ -19,22 +20,34 @@ export class ItemCellComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  ngOnChanges() {
-    if (this.item && this.item.video) {
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.item && this.item && this.item.video) {
       this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.item.video);
+    }
+    if (changes.collapse) {
+      this.handleVideoPlayback();
+    }
+  }
+
+  handleVideoPlayback(): void {
+    if (!this.collapse && this.videoBackground && this.videoBackground.nativeElement) {
+      this.videoBackground.nativeElement.play();
+    } else if (this.videoBackground && this.videoBackground.nativeElement) {
+      this.videoBackground.nativeElement.pause();
     }
   }
 
 
-  
-  @ViewChild('videoBackground') videoBackground!: ElementRef;
-
   playVideo(): void {
-    this.videoBackground.nativeElement.play();
+    if (this.collapse) {
+      this.videoBackground.nativeElement.play();
+    }
   }
 
   pauseVideo(): void {
-    this.videoBackground.nativeElement.pause();
+    if (this.collapse) {
+      this.videoBackground.nativeElement.pause();
+    }
   }
 
 

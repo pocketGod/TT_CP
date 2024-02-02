@@ -1,14 +1,16 @@
-<app-navbar></app-navbar>
-<!-- <app-sidenav></app-sidenav> -->
-<div class="container">
-    <div class="body">
-        <app-items-grid [items]="items"></app-items-grid>
+<ng-container *ngIf="!isLoading">
+    <app-navbar></app-navbar>
+    <!-- <app-sidenav></app-sidenav> -->
+    <div class="container">
+        <div class="body">
+            <app-items-grid [items]="items"></app-items-grid>
+            <ng-container>
+                <app-about-us></app-about-us>
+            </ng-container>
+        </div>
     </div>
-</div>
-<div class="footer-container">
-    <app-footer></app-footer>
-</div>
-
-
-
-
+    <div class="footer-container">
+        <app-footer></app-footer>
+    </div>
+    
+</ng-container>

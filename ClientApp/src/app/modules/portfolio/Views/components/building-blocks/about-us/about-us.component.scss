@@ -1,0 +1,10 @@
+@import '/src/app/styles/colors';
+.about-us-container{
+    width: 100%;
+    padding-top: 15px;
+    .about-us-text{
+        color: color(secondary,base);
+        font-size: 12px;
+        font-weight: 200;
+    }
+}

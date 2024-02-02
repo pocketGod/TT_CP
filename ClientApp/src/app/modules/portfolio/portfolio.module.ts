@@ -9,6 +9,7 @@ import { PortfolioHomePageComponent } from './Views/pages/portfolio-home-page/po
 import { ItemsGridComponent } from './Views/components/building-blocks/items-grid/items-grid/items-grid.component';
 import { ItemCellComponent } from './Views/components/building-blocks/items-grid/item-cell/item-cell.component';
 import { SharedModule } from '../shared/shared.module';
+import { AboutUsComponent } from './Views/components/building-blocks/about-us/about-us.component';
  
 
 
@@ -21,7 +22,8 @@ import { SharedModule } from '../shared/shared.module';
     SidenavComponent,
     FooterComponent,
     ItemsGridComponent,
-    ItemCellComponent
+    ItemCellComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

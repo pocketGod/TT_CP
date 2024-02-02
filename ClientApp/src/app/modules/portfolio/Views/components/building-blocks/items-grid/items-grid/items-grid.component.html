@@ -1,5 +1,6 @@
 <div class="grid-container" *ngIf=" items && items.length">
-    <div class="single-item-container" *ngFor="let item of items; index as idx">
+    <div class="single-item-container" *ngFor="let item of items; index as idx"
+    [ngClass]="{'collapsed-cell':currentIndexInFocus!==idx}">
         <app-item-cell 
             [item]="item" [index]="idx" 
             [collapse]="currentIndexInFocus!==idx"

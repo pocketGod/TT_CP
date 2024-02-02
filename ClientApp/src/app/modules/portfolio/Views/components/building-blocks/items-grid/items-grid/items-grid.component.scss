@@ -3,10 +3,13 @@
 .grid-container{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 5px;
+    gap: 13px;
     .single-item-container{
-        // background-color: color(primary,lighter);
         color: color(primary);
         cursor: pointer;
+        &.collapsed-cell{
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
     }
 }

@@ -1,3 +1,13 @@
 <nav class="navbar">
-    <p class="main-title">Tioma Terehov Cinematographer</p>
+    <div class="title-container" (click)="setSiteSection(4)">
+        <h1 class="main-title" dictionaryLocalize="Site.MainTitle" ></h1>
+        <h2 class="secondary-title" dictionaryLocalize="Site.SecondaryTitle"></h2>
+    </div>
+
+    <div class="links-container">
+        <a class="link" [ngClass]="{'active':siteSection==0}" (click)="setSiteSection(0)">Music Videos</a>
+        <a class="link" [ngClass]="{'active':siteSection==1}" (click)="setSiteSection(1)">Commercials</a>
+        <a class="link" [ngClass]="{'active':siteSection==2}" (click)="setSiteSection(2)">Films</a>
+        <a [routerLink]="['/']" class="link">About</a>
+    </div>
 </nav>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using TT_CP.API.Entites.General;
+using static TT_CP.API.Entites.General.Enums;
 
 public class Item
 {
@@ -32,6 +33,8 @@ public class Item
 
     [BsonElement("isActive")]
     public bool IsActive { get; set; }
+    [BsonElement("type")]
+    public Categories type { get; set; }
 }
 
 

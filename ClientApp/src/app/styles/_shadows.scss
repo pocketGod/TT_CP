@@ -7,8 +7,9 @@
 }
   
 @mixin deep-shadow($color) {
-    box-shadow: rgba($color, 0.3) 0px 20px 30px -10px;
+    box-shadow: rgba($color, 0.19) 0px 10px 20px, rgba($color, 0.23) 0px 6px 6px;
 }
+
   
 
 

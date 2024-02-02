@@ -14,6 +14,8 @@ export class ItemsGridComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.items);
+    
   }
 
   setItemInFocus(idx:number){

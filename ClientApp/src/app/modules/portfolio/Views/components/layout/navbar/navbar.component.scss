@@ -1,4 +1,5 @@
 @import '/src/app/styles/colors';
+@import '/src/app/styles/shadows';
 
 .navbar{
     position: sticky;
@@ -6,14 +7,45 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 115px;
+    // height: 75px;
     background-color: color(primary);
+    // @include deep-shadow(color(neutrals,dark-gray));
     // color: color(secondary);
-    .main-title{
-        color: color(neutrals,white);
+    border-bottom: 2px solid color(secondary,light);
+    .title-container{
+        padding-left: 16px;
+
+        .main-title,  .secondary-title{
+            color: color(secondary,base);
+            width: 100%;
+            text-align: start;
+            font-weight: 300;
+            font-size: 27px;
+            margin-bottom: 0;
+        }
+        .secondary-title{
+            font-size: 18px;
+        }
+    }
+
+    .links-container{
         width: 100%;
-        text-align: center;
-        font-weight: 700;
-        font-size: 28px;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 10px;
+        // border-top:  1px solid color(secondary,light);
+        .link{
+            width: 90px;
+            font-size: 13px;
+            text-align: center;
+            text-decoration: none;
+            color:color(secondary,lighter);
+            font-weight: 100;
+
+            &.active{
+                font-weight: 600;
+                // border-bottom: 2px solid color(secondary,lighter);
+            }
+        }
     }
 }

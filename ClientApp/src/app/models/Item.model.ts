@@ -1,4 +1,5 @@
 import { LanguageString } from "./Content.model";
+import { ProjectTypes } from "./Enums.model";
 import { ObjectId } from "./Utils.model";
 
 export interface Item {
@@ -11,5 +12,6 @@ export interface Item {
     video: string;
     cover: string;
     isActive: boolean;
+    type: ProjectTypes
 }
   

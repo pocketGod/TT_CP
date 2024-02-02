@@ -1,5 +1,13 @@
 @import '/src/app/styles/colors';
+@import '/src/app/styles/fonts';
+
 
 body{
-    background-color: color(neutrals,white);
+    background-color: color(neutrals,black);
+}
+
+*{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }

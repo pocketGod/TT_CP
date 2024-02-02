@@ -1,15 +1,27 @@
-<div class="cell-container" (mouseenter)="playVideo()" (mouseleave)="pauseVideo()">
+<div class="cell-container" [ngClass]="{'collapsed-cell-container':collapse}" (mouseenter)="playVideo()" (mouseleave)="pauseVideo()">
     <div class="cell-head">
-        <h1 [Localize]="item.title"></h1>
-        <h2 [Localize]="item.subTitle"></h2>
+        <h1 class="head-title" [Localize]="item.title"></h1>
+        <!-- <h2 class="head-sub-title" [Localize]="item.subTitle"></h2> -->
+        <h2 *ngIf="collapse" class="head-sub-title">{{item.type|typeMapper}}</h2>
+        <h3 *ngIf="!collapse" class="head-sub-title">({{item.year}})</h3>
     </div>
     <div class="cell-collapsable" [ngClass]="{'collapse-content':collapse}">
         <div class="cell-body">
-            <p [Localize]="item.description"></p>
+            <hr>
             <iframe class="video" [src]="safeVideoUrl" allowfullscreen></iframe>
+            <hr>
+            <p [Localize]="item.description" class="description"></p>
+
+            <div class="images-container">
+                <ng-container *ngFor="let url of item.images">
+                    <img class="project-image" [src]="url" alt="">
+                </ng-container>
+            </div>
         </div>
         <div class="cell-footer">
-            <p>{{item.year}}</p>
+            <hr>
+            <!-- <p>{{item.year}}</p> -->
+            <p>{{item.type|typeMapper}}</p>
         </div>
     </div>
 
@@ -18,4 +30,5 @@
             <source [src]="item.cover" type="video/mp4">
         </video>
     </div>
+
 </div>

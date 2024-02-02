@@ -7,15 +7,16 @@ import { Language } from 'src/app/models/Content.model';
 export class LanguageService {
 
   private readonly storageKey = 'LanguagePreference';
-  private currentLang: Language;
+  private currentLang!: Language;
 
   constructor() {
-    this.currentLang = this.getLanguageFromStorage() || Language.English;
-  }
-
-  private getLanguageFromStorage(): Language | null {
-    const storedLang = localStorage.getItem(this.storageKey);
-    return storedLang ? storedLang as Language : null;
+    let lang = this.getLanguageFromStorage();
+    if(lang) this.currentLang = lang;
+    else {
+      this.currentLang = Language.English;
+      this.setCurrentLang(Language.English);
+    }
+    this.setBodyDirection();
   }
 
   public getCurrentLang(): Language {
@@ -25,5 +26,16 @@ export class LanguageService {
   public setCurrentLang(lang: Language): void {
     this.currentLang = lang;
     localStorage.setItem(this.storageKey, lang);
+    this.setBodyDirection();
+  }
+  
+  private getLanguageFromStorage(): Language | null {
+    const storedLang = localStorage.getItem(this.storageKey);
+    return storedLang ? storedLang as Language : null;
+  }
+
+  private setBodyDirection(): void {
+    const dir = this.currentLang === Language.Hebrew ? 'rtl' : 'ltr';
+    document.body.setAttribute('dir', dir);
   }
 }
