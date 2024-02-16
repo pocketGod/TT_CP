@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/Item.model';
 import { ItemsService } from '../../../services/items.service';
 import { ContentService } from 'src/app/modules/shared/services/content.service';
-import { DictionaryEntry } from 'src/app/models/Content.model';
+import { DictionaryEntry, MediaEntry } from 'src/app/models/Content.model';
 
 @Component({
   selector: 'app-portfolio-home-page',
@@ -14,20 +14,15 @@ export class PortfolioHomePageComponent implements OnInit {
   items: Item[] = [];
   isLoading:boolean = true;
   dictionary!: DictionaryEntry[];
+  media!: MediaEntry[];
 
   constructor(private itemsService: ItemsService, private contentService: ContentService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.itemsService.getAllItems().subscribe({
       next: (data) => {
         if(data && data.length){
           this.items = data;
-
-          // just for testing with a single obj
-          this.items.push(data[0])
-          this.items.push(data[0])
-          this.items.push(data[0])
-          this.items.push(data[0])
           this.updateLoadingFlag()
         }
       },
@@ -39,12 +34,24 @@ export class PortfolioHomePageComponent implements OnInit {
         this.updateLoadingFlag()
       }
     })
+
+    this.contentService.media$.subscribe((media)=>{
+      if(media && media.length){
+        this.media = media
+        this.updateLoadingFlag()
+      }
+    })
     
   }
 
 
   updateLoadingFlag(){
-    if(this.items?.length && this.dictionary?.length){
+    // console.log(this.items);
+    // console.log(this.dictionary);
+    // console.log(this.media);
+    
+    if(this.items?.length && (this.dictionary?.length || this.media?.length )){
+      
       this.isLoading = false
     }
   }

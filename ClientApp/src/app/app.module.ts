@@ -10,6 +10,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { appInitializer } from './modules/shared/Interceptors/AppInitializer';
 import { AuthTokenInterceptor } from './modules/shared/Interceptors/AuthTokenInterceptor';
 import { AuthService } from './modules/shared/services/auth.service';
+import { PortfolioModule } from './modules/portfolio/portfolio.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { AuthService } from './modules/shared/services/auth.service';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    PortfolioModule
   ],
   providers: [
     {

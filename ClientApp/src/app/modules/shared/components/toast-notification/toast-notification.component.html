@@ -1,0 +1,8 @@
+<div class="toast-container" *ngIf="toastService.toasts.length">
+    <div *ngFor="let toast of toastService.toasts; let i = index" [ngClass]="{'fade-in': toast.animationState === 'fade-in', 'fade-out': toast.animationState === 'fade-out'}" class="toast-variation" role="alert">
+      <div class="toast-body">
+        {{ toast.text }}
+      </div>
+    </div>
+  </div>
+  

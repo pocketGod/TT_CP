@@ -1,0 +1,9 @@
+<div class="gallery-backdrop" *ngIf="images && images.length" (click)="closeGallery($event)">
+    <div class="gallery-container" (click)="stopProp($event)">
+      <!-- <button class="close-btn" (click)="closeGallery($event)">&times;</button> -->
+      <img [src]="activeImage" class="active-image">
+      <button class="nav-arrow left-arrow" (click)="navigate($event,'prev')">&#10094;</button>
+      <button class="nav-arrow right-arrow" (click)="navigate($event,'next')">&#10095;</button>
+    </div>
+  </div>
+  

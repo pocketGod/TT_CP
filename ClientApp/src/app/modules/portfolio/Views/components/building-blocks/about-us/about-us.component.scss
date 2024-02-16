@@ -1,10 +1,78 @@
 @import '/src/app/styles/colors';
+@import '/src/app/styles/shadows';
+
 .about-us-container{
+
+    padding: 19px;
+    margin-block-start: 20px;
     width: 100%;
     padding-top: 15px;
+    padding-bottom: 0;
+    margin-block-end: 13px;
+    background-color: color(neutrals, white);
+
     .about-us-text{
-        color: color(secondary,base);
+        color: color(neutrals,black);
         font-size: 12px;
-        font-weight: 200;
+        font-weight: 300;
     }
+
+    .profile-pic-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-block-end: 8px;
+        
+        img{
+            width: 50vw;
+            border-radius: 50%;
+            max-width: 210px;
+        }
+    }
+
+    .footer {
+        // position: fixed;
+        z-index: 5;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        // background-color: color(primary);
+        // background-color: color(neutrals,black);
+        color: color(secondary);
+        text-align: center;
+        padding: 10px 0;
+        // @include deep-shadow(color(primary,light));
+    
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            a {
+                // color: color(neutrals,white);
+                color: color(neutrals,black);
+                margin: 0 5px;
+                font-size: 23px;
+            }
+        }
+          
+    }
+      
+    
+}
+
+
+@media screen and (min-width:600px){
+    .about-us-container{
+        .footer{
+            position: unset;
+            .social-icons {
+                a {
+                    margin: 0 10px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+
 }

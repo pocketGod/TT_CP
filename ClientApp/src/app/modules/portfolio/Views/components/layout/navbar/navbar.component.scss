@@ -8,39 +8,58 @@
     left: 0;
     width: 100%;
     // height: 75px;
-    background-color: color(primary);
+    // background-color: color(primary);
+    background-color: color(neutrals,black);
     // @include deep-shadow(color(neutrals,dark-gray));
     // color: color(secondary);
-    border-bottom: 2px solid color(secondary,light);
+    // border-bottom: 2px solid color(secondary,light);
     .title-container{
-        padding-left: 16px;
+        cursor: pointer;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         .main-title,  .secondary-title{
             color: color(secondary,base);
-            width: 100%;
             text-align: start;
-            font-weight: 300;
-            font-size: 27px;
             margin-bottom: 0;
         }
         .secondary-title{
-            font-size: 18px;
+            font-size: 26px;
+            font-weight: 100;
+            padding-inline-start: 4px;
+            text-transform: lowercase;
+            font-family: "Taviraj";
+        }
+
+        .main-title{
+            font-family: "Bebas Neue";
+            font-weight: 600;
+            font-style: normal;
+            letter-spacing: 3px;
+            font-size: 50px;
+            height: 45px;
+            margin-block-start: 10px;
         }
     }
 
     .links-container{
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         margin-top: 10px;
+        gap: 30px;
         // border-top:  1px solid color(secondary,light);
         .link{
-            width: 90px;
+            width: auto;
             font-size: 13px;
             text-align: center;
             text-decoration: none;
             color:color(secondary,lighter);
             font-weight: 100;
+            cursor: pointer;
 
             &.active{
                 font-weight: 600;
@@ -48,4 +67,9 @@
             }
         }
     }
+}
+
+
+@media screen and (min-width:600px) {
+    
 }

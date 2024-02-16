@@ -1,0 +1,34 @@
+@import '/src/app/styles/colors';
+@import '/src/app/styles/shadows';
+@import '/src/app/styles/animations';
+
+.toast-container{
+    @include medium-shadow(color(neutrals,dark-gray));
+    z-index: 555;
+    color: color(neutrals,black);
+    position: fixed;
+    top: 90vh;
+    left: 15px;
+    background: color(neutrals,white);
+    padding-inline: 20px;
+    padding-block: 2px;
+    font-size: 17px;
+    font-weight: 400;
+
+    &:has(.fade-out){
+        animation: fadeOut 400ms ease-out;
+    }
+
+    .toast-variation{
+        // opacity: 0;
+        animation-fill-mode: forwards;
+    }
+
+    .fade-in {
+        animation: fadeIn 400ms ease-out;
+    }
+    
+    .fade-out {
+        animation: fadeOut 400ms ease-out;
+    }
+}

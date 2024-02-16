@@ -10,19 +10,17 @@ import { ContentHelper } from '../helpers/content.helper';
 export class DictionaryLocalizeDirective {
 
   @Input('dictionaryLocalize') key!: string;
-  private dictionary: DictionaryEntry[];
 
   constructor(
     private el: ElementRef, 
     private contentService: ContentService, 
     private langService: LanguageService
   ) {
-    this.dictionary = this.contentService.getDictionaryFromLocalStorage();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['key']) {
-      ContentHelper.updateElementText(this.el.nativeElement, this.dictionary, this.key, null, this.langService);
+      ContentHelper.updateElementText(this.el.nativeElement, this.contentService.currentDictionary, this.key, null, this.langService);
     }
   }
 

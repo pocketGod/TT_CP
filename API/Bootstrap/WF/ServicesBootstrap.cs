@@ -1,5 +1,6 @@
 ﻿using GYM_MODELS.Settings;
 using Microsoft.Extensions.Configuration;
+using TT_CP.API.WorkFlow.Managers;
 using TT_CP.API.WorkFlow.Services;
 using TT_CP.API.WorkFlow.Utils;
 
@@ -15,6 +16,10 @@ namespace TT_CP.API.Bootstrap.WF
             services.AddScoped<ICachingHelper, CachingHelper>();
             services.AddScoped<IItemService, ItemService>();
             services.AddScoped<IContentService, ContentService>();
+            services.AddScoped<IMediaService, MediaService>();
+
+
+            services.AddScoped<ContentManager>();
         }
     }
 }

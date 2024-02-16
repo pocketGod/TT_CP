@@ -2,26 +2,35 @@
     <div class="cell-head">
         <h1 class="head-title" [Localize]="item.title"></h1>
         <!-- <h2 class="head-sub-title" [Localize]="item.subTitle"></h2> -->
-        <h2 *ngIf="collapse" class="head-sub-title">{{item.type|typeMapper}}</h2>
-        <h3 *ngIf="!collapse" class="head-sub-title">({{item.year}})</h3>
+        <!-- <h2 *ngIf="collapse" class="head-sub-title">{{item.type|typeMapper}}</h2> -->
+        <!-- <h3 *ngIf="!collapse" class="head-sub-title">({{item.year}})</h3> -->
     </div>
     <div class="cell-collapsable" [ngClass]="{'collapse-content':collapse}">
         <div class="cell-body">
-            <hr>
-            <iframe class="video" [src]="safeVideoUrl" allowfullscreen></iframe>
-            <hr>
-            <p [Localize]="item.description" class="description"></p>
+
+            <div class="top-section">
+                <!-- <hr> -->
+                <iframe class="video" [src]="safeVideoUrl" allowfullscreen></iframe>
+                <!-- <hr> -->
+                <p [Localize]="item.description" class="description"></p>
+            </div>
 
             <div class="images-container">
                 <ng-container *ngFor="let url of item.images">
-                    <img class="project-image" [src]="url" alt="">
+                    <img class="project-image" [src]="url" alt="" (click)="openImgPopup($event,url)">
                 </ng-container>
+
+                <app-popup-gallery *ngIf="isPopUpOpen" [images]="item.images" [activeImage]="activeImgForPopup" (close)="closeImgPopup()"></app-popup-gallery>
+                
             </div>
         </div>
         <div class="cell-footer">
             <hr>
             <!-- <p>{{item.year}}</p> -->
-            <p>{{item.type|typeMapper}}</p>
+            <div class="footer-content">
+                <p>{{item.type|typeMapper}}</p>
+                <i (click)="copyUrlToSingleItem($event)" class="fa-regular fa-copy"></i>
+            </div>
         </div>
     </div>
 

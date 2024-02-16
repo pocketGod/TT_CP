@@ -3,7 +3,7 @@
     <!-- <app-sidenav></app-sidenav> -->
     <div class="container">
         <div class="body">
-            <app-items-grid [items]="items"></app-items-grid>
+            <app-item-cell [item]="item" [collapse]="false"></app-item-cell>
             <ng-container>
                 <app-about-us></app-about-us>
             </ng-container>
@@ -12,5 +12,5 @@
     <!-- <div class="footer-container">
         <app-footer></app-footer>
     </div> -->
-    <app-toast-notification></app-toast-notification>
+    
 </ng-container>

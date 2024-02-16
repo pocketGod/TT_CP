@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ProjectTypes } from 'src/app/models/Enums.model';
 import { Item } from 'src/app/models/Item.model';
+import { ActivityTrackerService } from 'src/app/modules/shared/services/activity-tracker.service';
 
 @Component({
   selector: 'app-items-grid',
@@ -10,12 +13,19 @@ export class ItemsGridComponent implements OnInit {
 
   @Input() items: Item[] = [];
   currentIndexInFocus: number = -1;
+
+  siteSection: ProjectTypes = ProjectTypes.Other;
+  private subscriptions: Subscription = new Subscription();
+
   
-  constructor() { }
+  constructor(private activityTracker:ActivityTrackerService) { }
 
   ngOnInit(): void {
-    console.log(this.items);
-    
+    this.subscriptions.add(this.activityTracker.siteSection$.subscribe(
+      (section: ProjectTypes) => {
+        this.siteSection = section;
+      }
+    ));
   }
 
   setItemInFocus(idx:number){

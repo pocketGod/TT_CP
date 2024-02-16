@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.Design;
 using TT_CP.API.Entites.General;
+using TT_CP.API.WorkFlow.Managers;
 using TT_CP.API.WorkFlow.Services;
 
 namespace TT_CP.API.Controllers
@@ -9,11 +10,11 @@ namespace TT_CP.API.Controllers
     [Route("api/[controller]")]
     public class ContentController : ControllerBase
     {
-        private readonly IContentService _contentService;
+        private readonly ContentManager _contentManager;
 
-        public ContentController(IContentService contentService)
+        public ContentController(ContentManager contentManager)
         {
-            _contentService = contentService;
+            _contentManager = contentManager;
         }
 
         [HttpGet("GetAll")]
@@ -21,16 +22,16 @@ namespace TT_CP.API.Controllers
         {
             if (HttpContext.Items["User"] == null)
                 return Unauthorized();
-            var items = _contentService.GetAllItems();
+            var items = _contentManager.GetAllItems();
             return Ok(items);
         }
 
 
-        [HttpPut("EditDictionary")]
-        public IActionResult EditItemById([FromBody] List<TranslationDictionaryItem> dictionaryVals )
-        {
-            _contentService.EditItems(dictionaryVals);
-            return  Ok();
-        }
+        //[HttpPut("EditDictionary")]
+        //public IActionResult EditItemById([FromBody] List<TranslationDictionaryItem> dictionaryVals )
+        //{
+        //    _contentManager.EditItems(dictionaryVals);
+        //    return  Ok();
+        //}
     }
 }

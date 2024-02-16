@@ -2,12 +2,13 @@
 @import '/src/app/styles/shadows';
 
 .footer {
-    position: fixed;
+    // position: fixed;
     z-index: 5;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: color(primary);
+    // background-color: color(primary);
+    background-color: color(neutrals,black);
     color: color(secondary);
     text-align: center;
     padding: 10px 0;
@@ -19,8 +20,8 @@
         a {
             // color: color(neutrals,white);
             color: color(secondary,lighter);
-            margin: 0 10px;
-            font-size: 20px;
+            margin: 0 5px;
+            font-size: 18px;
         }
     }
       
@@ -28,13 +29,17 @@
   
 
 
-  
-@media (max-width: 600px) {
-    .social-icons {
-        a {
-            margin: 0 5px;
-            font-size: 18px;
+
+@media screen and (min-width:600px){
+    .footer{
+        position: unset;
+        .social-icons {
+            a {
+                margin: 0 10px;
+                font-size: 20px;
+            }
         }
     }
+
 }
   

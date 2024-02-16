@@ -10,6 +10,9 @@ import { ItemsGridComponent } from './Views/components/building-blocks/items-gri
 import { ItemCellComponent } from './Views/components/building-blocks/items-grid/item-cell/item-cell.component';
 import { SharedModule } from '../shared/shared.module';
 import { AboutUsComponent } from './Views/components/building-blocks/about-us/about-us.component';
+import { PopupGalleryComponent } from './Views/components/building-blocks/popup-gallery/popup-gallery.component';
+import { SingleItemPageComponent } from './Views/pages/single-item-page/single-item-page.component';
+import { ShowreelComponent } from './Views/components/building-blocks/showreel/showreel.component';
  
 
 
@@ -23,7 +26,10 @@ import { AboutUsComponent } from './Views/components/building-blocks/about-us/ab
     FooterComponent,
     ItemsGridComponent,
     ItemCellComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    PopupGalleryComponent,
+    ShowreelComponent,
+    SingleItemPageComponent
   ],
   imports: [
     CommonModule,

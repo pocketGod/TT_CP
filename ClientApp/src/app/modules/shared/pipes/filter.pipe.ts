@@ -1,21 +1,26 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { ProjectTypes } from 'src/app/models/Enums.model';
 
 @Pipe({
   name: 'filterBy'
 })
-export class FilterPipe<T> implements PipeTransform {
-  transform(items: T[], field: keyof T, value: string): T[] {
+export class FilterPipe<T extends { type: ProjectTypes }> implements PipeTransform {
+  transform(items: T[], field: keyof T, value: ProjectTypes): T[] {
     if (!items) return [];
-    if (!value || !field) return items;
+    if (!value) return items;
 
-    return items.filter(singleItem => {
-      const itemFieldValue = singleItem[field];
-      if (itemFieldValue === null || itemFieldValue === undefined) {
-        return false;
-      }
+    if (value === ProjectTypes.Other) return items;
 
-      const itemFieldValueString = (itemFieldValue as unknown as { toString(): string }).toString().toLowerCase();
-      return itemFieldValueString.includes(value.toLowerCase());
+    if (value === ProjectTypes.ShortFilm || value === ProjectTypes.FeatureFilm) {
+      return items.filter(item => {
+        const itemType = item[field] as unknown as ProjectTypes;
+        return itemType === ProjectTypes.ShortFilm || itemType === ProjectTypes.FeatureFilm;
+      });
+    }
+
+    return items.filter(item => {
+      const itemFieldValue = item[field] as unknown as ProjectTypes;
+      return itemFieldValue === value;
     });
   }
 }

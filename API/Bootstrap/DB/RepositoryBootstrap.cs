@@ -19,6 +19,12 @@ namespace TT_CP.API.Bootstrap.DB
                 var database = serviceProvider.GetRequiredService<IMongoClient>().GetDatabase(configuration["MongoDB:DatabaseName_Data"]);
                 return new ItemRepository(database);
             });
+
+            services.AddScoped<IMediaRepository>(serviceProvider =>
+            {
+                var database = serviceProvider.GetRequiredService<IMongoClient>().GetDatabase(configuration["MongoDB:DatabaseName_Content"]);
+                return new MediaRepository(database);
+            });
         }
     }
 }

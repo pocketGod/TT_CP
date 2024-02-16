@@ -3,6 +3,14 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace TT_CP.API.Entites.General
 {
+
+    public class ContentResponse
+    {
+        public IEnumerable<TranslationDictionaryItem> Translations { get; set; }
+        public IEnumerable<MediaItem> MediaItems { get; set; }
+
+    }
+
     public class NestedLang
     {
         [BsonElement("he")]
@@ -36,7 +44,7 @@ namespace TT_CP.API.Entites.General
         public string Key { get; set; }
 
 
-        [BsonElement("desc")]
-        public NestedLang Description { get; set; }
+        //[BsonElement("desc")]
+        //public NestedLang Description { get; set; }
     }
 }
